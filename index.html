@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>展示图片</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .gallery {
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .gallery img {
+      margin: 10px;
+      max-width: 200px;
+      max-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="loginContainer" style="display: none;">
+    <h2>登录</h2>
+    <form id="loginForm">
+      <label for="username">用户名：</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <button type="submit">登录</button>
+    </form>
+  </div>
+
+  <div class="gallery" style="display: none;">
+    <img src="image1.jpg" alt="图片1">
+    <img src="image3.jpg" alt="图片3">
+    <!-- 添加更多图片 -->
+  </div>
+
+  <script>
+   
+    function checkCredentials() {
+      const storedUsername = 'admin'; // 存储的用户名
+      const storedPassword = '666'; // 存储的密码
+      const enteredUsername = document.getElementById('username').value;
+      const enteredPassword = document.getElementById('password').value;
+
+      if (storedUsername === enteredUsername && storedPassword === enteredPassword) {
+       
+        document.getElementById('loginContainer').style.display = 'none';
+        document.querySelector('.gallery').style.display = 'flex';
+      } else {
+        alert('用户名或密码错误，请重试。');
+      }
+      
+      
+      return false;
+    }
+
+    
+    document.getElementById('loginForm').addEventListener('submit', checkCredentials);
+  </script>
+</body>
+</html>
