@@ -1,3 +1,33 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginPage" class="full-screen">
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="用户名">
+            <input type="password" id="password" placeholder="密码">
+            <button type="submit">登录</button>
+        </form>
+    </div>
 
-  
+    <div id="adminPanel" class="full-screen hidden">
+        <h1>后台管理</h1>
+        <form id="addUserForm">
+            <input type="text" id="newUserId" placeholder="输入新的B账号ID (4-8位数字)">
+            <input type="password" id="newUserPassword" placeholder="输入密码 (4-8位数字)">
+            <button type="submit">添加B账号</button>
+        </form>
+        <div id="userList">
+            <h2>已创建的B账号</h2>
+            <!-- 用户列表将在这里动态生成 -->
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
