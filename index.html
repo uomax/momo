@@ -1,39 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Chat App</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Profile</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="loginPage" class="page">
+    <!-- 登录部分 -->
+    <div class="login-container-wrapper">
+    <div class="login-container" id="loginPage">
+        <h1>Login</h1>
         <form id="loginForm">
             <input type="text" id="username" placeholder="账号" required>
             <input type="password" id="password" placeholder="密码" required>
             <button type="submit">登录</button>
         </form>
     </div>
-    <div id="mainPage" class="page" style="display: none;">
+        </div>
+
+    <!-- 主界面部分 -->
+    <div id="mainPage" style="display: none;">
         <header>
-            我的聊天应用
-            <button id="addContact" style="float: right; display: none;">+</button>
+            <input type="text" placeholder="搜索" id="search">
+            <button id="add">+</button>
         </header>
-        <input type="text" id="searchBox" placeholder="搜索联系人..." style="display: none;">
-        <div id="contactsPage" style="display: none;">
-            <div class="contact-item">Alice</div>
-            <div class="contact-item">Bob</div>
-            <!-- 更多联系人 -->
-        </div>
+        <main>
+            <div class="profile">
+                <img src="avatar.jpg" alt="Profile Image">
+                <div class="info">
+                    <h2>ByteMaster</h2>
+                    <p>见习魔法士</p>
+                </div>
+            </div>
+        </main>
         <nav>
-            <div id="contacts" class="nav-item">联系人</div>
-            <div id="chats" class="nav-item selected">对话</div>
-            <div id="settings" class="nav-item">设置</div>
+            <button id="contacts">联系人</button>
+            <button id="chat">对话</button>
+            <button id="settings">设置</button>
         </nav>
-        <div id="chatArea">
-            <!-- 对话内容会在这里展示 -->
-        </div>
     </div>
-</body>
+
 <script src="script.js"></script>
+</body>
 </html>
