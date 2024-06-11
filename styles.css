@@ -28,13 +28,14 @@ input, button {
 
 header {
     width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    top: 0;
+    text-align: center; /* 文本居中显示 */
+    padding: 10px; /* 上下左右的内边距 */
+    background-color: #333; /* 背景颜色为深灰色 */
+    color: #fff; /* 文本颜色为白色 */
+    position: fixed; /* 固定在页面顶部 */
+    top: 0; /* 位于页面的最顶部 */
 }
+
 
 nav {
     display: flex;
@@ -72,17 +73,13 @@ nav {
 }
 
 #searchBox {
-    padding: 10px; /* 设置内填充，让文本输入更舒适 */
-    box-sizing: border-box; /* 设置盒模型，边框和内填充的空间包含在宽度内 */
-    display: none; /* 默认不显示，仅在特定情况下显示 */
-    border-radius: 10px; /* 设置四个角为10度弧形 */
-    position: absolute; /* 绝对定位 */
-    top: 10px; /* 距顶部10px */
-    left: 10px; /* 距左边10px */
-    right: 10px; /* 距右边10px */
-    z-index: 10; /* 确保搜索框在其他内容之上 */
+    display: block;
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    width: calc(100% - 20px); /* 确保父元素宽度适应 */
+    margin: 0 10px; /* 确保左右有空间 */
 }
-
 
 
 .contact-item {
@@ -93,5 +90,3 @@ nav {
 .contact-item:last-child {
     border-bottom: none; /* 最后一个联系人条目不显示底部边框 */
 }
-
-
