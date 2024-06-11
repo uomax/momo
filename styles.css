@@ -1,92 +1,154 @@
-body, html {
-    height: 100%;
-    margin: 0;
+body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #131314;
+    color: white;
+    box-sizing: border-box; /* 包括内边距和边框在内计算元素的总宽度和高度 */
+    height: 100vh; /* 使页面充满整个视口高度 */
+    width: 100vw; /* 使页面充满整个视口宽度 */
 }
 
-.page {
+/* 登录页面的专用样式 */
+.login-container-wrapper {
     display: flex;
-    flex-direction: column;
-    height: 100%;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
-form {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131314;
+    color: white;
+    box-sizing: border-box;
+}
+
+
+.login-container {
+    display: flex; /* 使用Flexbox布局 */
+    flex-direction: column; /* 子元素垂直排列 */
+    align-items: center; /* 子元素水平居中 */
+    width: 100%; /* 宽度自适应 */
+    max-width: 300px; /* 最大宽度限制为300px */
+    padding: 20px; /* 内边距 */
+    box-sizing: border-box; /* 包括内边距和边框在内计算元素的总宽度和高度 */
+}
+
+.login-container h1 {
+    color: white; /* 文本颜色为白色 */
+    margin-bottom: 20px; /* 底部外边距 */
+}
+
+.login-container input {
+    width: 100%; /* 宽度占据容器的全部 */
+    margin: 10px 0; /* 上下外边距 */
+    padding: 10px; /* 内边距 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 5px; /* 圆角边框 */
+    box-sizing: border-box; /* 包括内边距和边框在内计算元素的总宽度和高度 */
+}
+
+.login-container button {
+    width: 100%; /* 宽度占据容器的全部 */
+    padding: 10px; /* 内边距 */
+    margin: 10px 0; /* 上下外边距 */
+    background-color: #4CAF50; /* 背景颜色 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停时显示手形光标 */
+    box-sizing: border-box; /* 包括内边距和边框在内计算元素的总宽度和高度 */
+}
+
+/* 主界面的样式 */
+#mainPage {
     display: flex;
     flex-direction: column;
-}
-
-input, button {
-    margin: 10px 0;
-    padding: 10px;
-    width: 90vw;
-    max-width: 300px;
-}
-
-header {
-    width: 100%;
-    text-align: center; /* 文本居中显示 */
-    padding: 10px; /* 上下左右的内边距 */
-    background-color: #333; /* 背景颜色为深灰色 */
-    color: #fff; /* 文本颜色为白色 */
-    position: fixed; /* 固定在页面顶部 */
-    top: 0; /* 位于页面的最顶部 */
+    align-items: flex-start; /* 从居中改为靠左对齐 */
+    justify-content: flex-start; /* 从顶部开始排列内容 */
+    min-height: 100vh;
+    width: 100vw;
+    padding-top: 55px; /* header高度加额外空间，确保内容从header下方开始 */
+    overflow: auto; /* 添加溢出自动处理，避免内容溢出导航栏 */
 }
 
 
-nav {
+#mainPage header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: space-around;
-    background-color: #333;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #1f1f1f;
+    z-index: 1000; /* 确保标题栏在最上层 */
+}
+
+#mainPage header input {
+    flex: 1; /* 输入框占据剩余空间 */
+    padding: 8px;
+    background: #2c2c2e;
+    border: none;
+    color: white;
+}
+
+#mainPage button {
+    padding: 8px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+#mainPage button.active {
+    color: #4CAF50;
+}
+
+#mainPage main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 确保内容靠左对齐 */
+    padding-top: 10px; /* 添加一些内边距，确保不被header遮挡 */
+    margin-top: 50px; /* 添加足够的外边距来保证`main`内容始终位于`header`下方 */
+}
+
+#mainPage .profile {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; /* 调整内边距以适应新的布局 */
+}
+
+
+#mainPage .profile img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#mainPage .profile .info h2, #mainPage .profile .info p {
+    margin: 0;
+}
+
+#mainPage nav {
     position: fixed;
     bottom: 0;
-    width: 100%;
-}
-
-.nav-item {
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
     padding: 10px;
-    background-color: #333;
-    color: #fff;
-    transition: background-color 0.3s;
+    background-color: #1f1f1f;
 }
 
-.nav-item:hover, .nav-item.selected {
-    background-color: #454545; /* 亮灰色，表示选中或悬停 */
+#mainPage nav button {
+    flex: 1;
+    text-align: center;
 }
 
-#chatArea {
-    flex-grow: 1;
-    padding: 60px 10px 60px; /* 预留出头部和底部导航栏的空间 */
-    overflow-y: scroll;
-    background-color: #f9f9f9;
-}
-
-#addContact {
-    padding: 5px 10px; /* 设置内填充，使按钮更易点击 */
-    border: none; /* 取消边框 */
-    background-color: #333; /* 设置背景颜色为深灰色 */
-    color: white; /* 设置文本颜色为白色 */
-    cursor: pointer; /* 鼠标悬停时显示指针，表明这是一个可点击的元素 */
-}
-
-#searchBox {
-    display: block;
-    position: relative;
-    padding: 10px;
-    border-radius: 10px;
-    width: calc(100% - 20px); /* 确保父元素宽度适应 */
-    margin: 0 10px; /* 确保左右有空间 */
-}
-
-
-.contact-item {
-    padding: 10px; /* 设置每个联系人条目的内填充 */
-    border-bottom: 1px solid #ddd; /* 在条目底部添加一条淡灰色的边框 */
-}
-
-.contact-item:last-child {
-    border-bottom: none; /* 最后一个联系人条目不显示底部边框 */
-}
