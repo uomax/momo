@@ -1,37 +1,97 @@
-/* styles.css */
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
     height: 100%;
-}
-
-.full-screen {
+    margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    flex-direction: column;
 }
 
-.hidden {
-    display: none;
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 input, button {
+    margin: 10px 0;
     padding: 10px;
-    font-size: 16px;
+    width: 90vw;
+    max-width: 300px;
 }
 
-button {
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
+header {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
 }
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-item {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover, .nav-item.selected {
+    background-color: #454545; /* 亮灰色，表示选中或悬停 */
+}
+
+#chatArea {
+    flex-grow: 1;
+    padding: 60px 10px 60px; /* 预留出头部和底部导航栏的空间 */
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+}
+
+#addContact {
+    padding: 5px 10px; /* 设置内填充，使按钮更易点击 */
+    border: none; /* 取消边框 */
+    background-color: #333; /* 设置背景颜色为深灰色 */
+    color: white; /* 设置文本颜色为白色 */
+    cursor: pointer; /* 鼠标悬停时显示指针，表明这是一个可点击的元素 */
+}
+
+#searchBox {
+    padding: 10px; /* 设置内填充，让文本输入更舒适 */
+    box-sizing: border-box; /* 设置盒模型，边框和内填充的空间包含在宽度内 */
+    display: none; /* 默认不显示，仅在特定情况下显示 */
+    border-radius: 10px; /* 设置四个角为10度弧形 */
+    position: absolute; /* 绝对定位 */
+    top: 10px; /* 距顶部10px */
+    left: 10px; /* 距左边10px */
+    right: 10px; /* 距右边10px */
+    z-index: 10; /* 确保搜索框在其他内容之上 */
+}
+
+
+
+.contact-item {
+    padding: 10px; /* 设置每个联系人条目的内填充 */
+    border-bottom: 1px solid #ddd; /* 在条目底部添加一条淡灰色的边框 */
+}
+
+.contact-item:last-child {
+    border-bottom: none; /* 最后一个联系人条目不显示底部边框 */
+}
+
+
