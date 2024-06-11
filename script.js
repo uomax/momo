@@ -1,56 +1,47 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    // 简化的登录验证：仅允许两个固定账号登录
-    if ((username === '11111' && password === '11111') || (username === '22222' && password === '22222')) {
+    if (username === '1111' && password === '1111') {
         document.getElementById('loginPage').style.display = 'none';
-        document.getElementById('mainPage').style.display = 'flex';
+        document.getElementById('mainPage').style.display = 'flex'; // 显示主界面并应用flex布局
+        document.body.style.display = 'block'; // 将body的样式恢复为标准块布局
+        document.body.style.alignItems = 'initial'; // 取消居中对齐
+        document.body.style.justifyContent = 'initial'; // 取消居中对齐
     } else {
-        alert('用户名或密码错误！');
+        alert('用户名或密码错误，请使用默认用户名：user 和密码：password');
     }
 });
 
-// 添加导航栏的点击事件处理
-document.getElementById('contacts').addEventListener('click', function() {
-    displayPage('contacts');
-});
-document.getElementById('chats').addEventListener('click', function() {
-    displayPage('chats');
-});
-document.getElementById('settings').addEventListener('click', function() {
-    displayPage('settings');
+
+document.getElementById('add').addEventListener('click', function() {
+    alert('添加新的朋友！');
 });
 
-function updateHeaderTitle(title) {
-    document.querySelector('header').firstChild.nodeValue = title;
-}
+document.getElementById('search').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        alert('搜索: ' + e.target.value);
+    }
+});
 
-// 然后在 displayPage 中调用这个函数
-function displayPage(page) {
-    // 隐藏所有特定页面元素
-    document.getElementById('searchBox').style.display = 'none';
-    document.getElementById('contactsPage').style.display = 'none';
-    document.getElementById('chatArea').style.display = 'none';
-    document.getElementById('addContact').style.display = 'none';
-    // 取消所有导航项的选中状态
-    document.querySelectorAll('.nav-item').forEach(function(item) {
-        item.classList.remove('selected');
+const buttons = document.querySelectorAll('nav button');
+buttons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (btn.id === 'contacts') {
+            document.querySelector('main').innerHTML = `
+                <div class="profile">
+                    <img src="avatar.jpg" alt="Profile Image">
+                    <div class="info">
+                        <h2>ByteMaster</h2>
+                        <p>见习魔法士</p>
+                    </div>
+                </div>
+            `;
+        } else {
+            document.querySelector('main').innerHTML = '<p>页面内容待定</p>';
+        }
     });
-
-    if (page === 'contacts') {
-        document.getElementById('searchBox').style.display = 'block';
-        document.getElementById('contactsPage').style.display = 'block';
-        document.getElementById('addContact').style.display = 'block';
-        updateHeaderTitle('');  // 设置标题为空
-        document.getElementById('contacts').classList.add('selected');
-    } else if (page === 'chats') {
-        document.getElementById('chatArea').style.display = 'block';
-        updateHeaderTitle('我的聊天应用');  // 继续显示这个标题
-        document.getElementById('chats').classList.add('selected');
-    } else if (page === 'settings') {
-        updateHeaderTitle('设置');  // 显示设置标题
-        document.getElementById('settings').classList.add('selected');
-    }
-}
+});
