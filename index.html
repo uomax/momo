@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>后台管理系统</title>
+    <title>Mobile Chat App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="loginPage" class="full-screen">
+    <div id="loginPage" class="page">
         <form id="loginForm">
-            <input type="text" id="username" placeholder="用户名">
-            <input type="password" id="password" placeholder="密码">
+            <input type="text" id="username" placeholder="账号" required>
+            <input type="password" id="password" placeholder="密码" required>
             <button type="submit">登录</button>
         </form>
     </div>
-
-    <div id="adminPanel" class="full-screen hidden">
-        <h1>后台管理</h1>
-        <form id="addUserForm">
-            <input type="text" id="newUserId" placeholder="输入新的B账号ID (4-8位数字)">
-            <input type="password" id="newUserPassword" placeholder="输入密码 (4-8位数字)">
-            <button type="submit">添加B账号</button>
-        </form>
-        <div id="userList">
-            <h2>已创建的B账号</h2>
-            <!-- 用户列表将在这里动态生成 -->
+    <div id="mainPage" class="page" style="display: none;">
+        <header>
+            我的聊天应用
+            <button id="addContact" style="float: right; display: none;">+</button>
+        </header>
+        <input type="text" id="searchBox" placeholder="搜索联系人..." style="display: none;">
+        <div id="contactsPage" style="display: none;">
+            <div class="contact-item">Alice</div>
+            <div class="contact-item">Bob</div>
+            <!-- 更多联系人 -->
+        </div>
+        <nav>
+            <div id="contacts" class="nav-item">联系人</div>
+            <div id="chats" class="nav-item selected">对话</div>
+            <div id="settings" class="nav-item">设置</div>
+        </nav>
+        <div id="chatArea">
+            <!-- 对话内容会在这里展示 -->
         </div>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
+<script src="script.js"></script>
 </html>
